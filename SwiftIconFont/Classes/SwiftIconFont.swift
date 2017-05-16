@@ -155,7 +155,7 @@ func replace(withText string: NSString) -> NSString {
 
 
 
-func getAttributedString(_ text: NSString, ofSize size: CGFloat) -> NSMutableAttributedString {
+public func getAttributedString(_ text: NSString, ofSize size: CGFloat) -> NSMutableAttributedString {
     let attributedString = NSMutableAttributedString(string: text as String)
     
     for substring in ((text as String).characters.split{$0 == " "}.map(String.init)) {  
