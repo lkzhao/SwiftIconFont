@@ -27,10 +27,10 @@ class FontLoader: NSObject {
             let data = try Data(contentsOf: fontURL!)
             
             let provider = CGDataProvider(data: data as CFData)
-            let font = CGFont.init(provider!)!
+            let font: CGFont? = CGFont.init(provider!)
             
             var error: Unmanaged<CFError>?
-            if !CTFontManagerRegisterGraphicsFont(font, &error) {
+            if !CTFontManagerRegisterGraphicsFont(font!, &error) {
                 let errorDescription: CFString = CFErrorCopyDescription(error!.takeUnretainedValue())
                 let nsError = error!.takeUnretainedValue() as AnyObject as! NSError
                 NSException(name: NSExceptionName.internalInconsistencyException, reason: errorDescription as String, userInfo: [NSUnderlyingErrorKey: nsError]).raise()
