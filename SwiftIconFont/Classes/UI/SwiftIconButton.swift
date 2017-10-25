@@ -1,5 +1,5 @@
 //
-//  SwiftIconLabel.swift
+//  SwiftIconButton.swift
 //  icon
 //
 //  Created by Sedat Gökbek ÇİFTÇİ on 08/07/16.
@@ -9,11 +9,11 @@
 import UIKit
 
 @IBDesignable
-class SwiftIconLabel: UILabel {
+class SwiftIconButton: UIButton {
     @IBInspectable var Icon: String = "" {
         didSet {
-            self.text = Icon
             self.parseIcon()
+            self.setTitle(Icon, for: .normal)
         }
     }
     
@@ -21,3 +21,5 @@ class SwiftIconLabel: UILabel {
         self.parseIcon()
     }
 }
+
+

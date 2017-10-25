@@ -1,5 +1,5 @@
 //
-//  SwiftIconButton.swift
+//  SwiftIconLabel.swift
 //  icon
 //
 //  Created by Sedat Gökbek ÇİFTÇİ on 08/07/16.
@@ -9,23 +9,15 @@
 import UIKit
 
 @IBDesignable
-class SwiftIconButton: UIButton {    
+public class SwiftIconLabel: UILabel {
     @IBInspectable var Icon: String = "" {
         didSet {
-            self.titleLabel?.text = Icon
+            self.text = Icon
             self.parseIcon()
         }
     }
-
-    override func setTitleColor(_ color: UIColor?, for state: UIControlState) {
-        super.setTitleColor(color, for: state)
+    
+    public override func awakeFromNib() {
         self.parseIcon()
     }
-
-    override func awakeFromNib() {
-        self.parseIcon()
-    }
-
 }
-
-
